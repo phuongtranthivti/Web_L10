@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="getData.js"> </script>
+   <title>Document</title>
+</head>
+<body>
+    <h2>
+        TÌM KIẾM
+    </h2>
+    <p>
+        Tên tìm kiếm:
+        <input type="text" id="search" placeholder="Nhập tên ngân hàng" onkeyup="getList()"> <br>
+    </p>
+    <p>
+        Lọc theo countryID:
+        <input type="text" id="countryId" placeholder="Nhập countryID"> <br>
+    </p>
+        
+    <!-- <p>
+        Lọc theo countryId:
+        <input type="text" id="searchCountryId" placeholder="Nhập CountryId">
+    </p> -->
+    <p style="color: red;" id = "check"></p>
+    <p>
+        <h3> Kết quả:</h3>
+    </p>
+    <div id="result">
+    </div>
+</body>
+
+<script>
+    function getList() {       
+        var banks = getData();           
+        var name = document.getElementById("search").value.trim();
+        var countryId = document.getElementById("countryId").value.trim();
+        var result = document.getElementById("result");
+        var str = ''; 
+
+        var check = false;
+        banks.forEach(function (bank) {        
+            if (countryId == bank.countryID) {
+                check = true;
+            }
+        });
+
+        if (countryId == '') {
+            console.log('1');
+            banks.forEach(function (bank) {        
+                if ((bank.bankName.search(name) != -1)) {
+                    str += "BankID: " +bank.bankCode+ "; Bank Name: " +bank.bankName+ "<br>";
+                }
+        });
+        } else if (check) {
+            console.log('2');
+            banks.forEach(function (bank) {        
+                if ((bank.bankName.search(name) != -1)  && (countryId == bank.countryID)) {
+                    str += "BankID: " +bank.bankCode+ "; Bank Name: " +bank.bankName+ "<br>";
+                }
+        });
+        } else {
+            console.log('3');
+            str = "Không tồn tại countryId này trong DataBase"
+        }
+        result.innerHTML = str;
+    }
+</script>
+</html>

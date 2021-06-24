@@ -1,0 +1,88 @@
+.header {
+    background-color: blue;
+    height: 170px; 
+    width: 100%;
+}
+.sidebar {
+    background-color: rgba(0, 140, 255, 0.733);
+    width: 40%; 
+    border: white solid 1px;
+}
+.content {
+    background-color: rgba(0, 140, 255, 0.637);
+    width: 60%; 
+    border: white solid 1px;
+}
+.sidebar {
+    padding-top: 50px;
+}
+.login {
+    text-align: center;
+    padding-top: 15px;
+}
+
+input {
+    width: 200px;
+    height: 20px;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+textarea {
+    margin-left: 20px;
+}
+ul {
+    list-style: none;
+}
+li {
+    padding-top: 8px;
+}
+a {
+    text-decoration: none;
+}
+.detail {
+    background-color: rgba(0, 140, 255, 0.457);
+    width: 70%;
+    margin-left: 15%;  
+    margin-bottom: 20px;
+}
+.all {
+    display: flex;
+    margin-top: 10px;
+}
+form {
+    padding: 20px;
+}
+
+input[type=radio], input[type=checkbox] {
+    width: 30px;
+    margin-left: 20px;
+}
+
+select {
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.animation {
+  position: relative;
+  animation-name: animation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite; 
+}
+
+@keyframes animation {
+    0% {left:0px; top:0px;}
+    50% {left:65%; top:0px;}
+    100% {left:0px; top:0px;}
+}
+
+i {
+    padding: 20px;
+}
+span {
+    color:blue;
+    margin-left: 20px;
+    display: none;
+}
